@@ -27,7 +27,7 @@ const About = () => {
   return (
     <motion.section
       id="about"
-      className="py-20 bg-gradient-to-r from-gray-800 to-gray-900"
+      className="py-20 bg-gradient-to-r from-gray-700 via-gray-800 to-gray-900"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: false, amount: 0.3 }}
@@ -40,13 +40,13 @@ const About = () => {
               className="relative w-64 h-64 mx-auto md:mx-0"
               initial={{ rotate: -5 }}
               whileHover={{ rotate: 0 }}
-              transition={{ type: "spring", stiffness: 200 }}
+              transition={{ type: "spring", stiffness: 300 }}
             >
               <motion.div
                 className="absolute inset-0 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-500"
                 style={{ rotate: -3 }}
                 animate={{
-                  rotate: [0, -3, 0],
+                  rotate: [0, -4, 0],
                   scale: [1, 1.02, 1],
                 }}
                 transition={{
@@ -55,10 +55,12 @@ const About = () => {
                   repeatType: "reverse"
                 }}
               />
-              <div className="absolute inset-1 rounded-2xl bg-gray-900 flex items-center justify-center">
-                <svg className="w-32 h-32 text-purple-400" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                </svg>
+              <div className="absolute inset-2 rounded-2xl bg-gray-900 flex items-center justify-center">
+                <img
+                    src="https://via.placeholder.com/128" // Replace with your image URL
+                    alt="Descriptive text for the image" // Add alt text for accessibility
+                    className="w-56 h-56 object-cover rounded-2xl" // Style the image
+                  />
               </div>
             </motion.div>
           </motion.div>

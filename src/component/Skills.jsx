@@ -51,7 +51,7 @@ const Skills = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
+        staggerChildren: 0.2,
       }
     }
   };
@@ -69,7 +69,7 @@ const Skills = () => {
   };
 
   const iconVariants = {
-    hidden: { scale: 0, rotate: -180 },
+    hidden: { scale: 0, rotate: -180,},
     visible: {
       scale: 1,
       rotate: 0,
@@ -79,21 +79,13 @@ const Skills = () => {
         damping: 10
       }
     },
-    hover: {
-      scale: 1.1,
-      rotate: 10,
-      transition: {
-        type: "spring",
-        stiffness: 400,
-        damping: 10
-      }
-    }
   };
+
 
   return (
     <motion.section
       id="skills"
-      className="py-20 bg-gradient-to-r from-gray-900 to-purple-900"
+      className="py-20 "
       initial="hidden"
       whileInView="visible"
       viewport={{ once: false, amount: 0.3 }}
@@ -115,11 +107,18 @@ const Skills = () => {
               key={skill.name}
               className="flex flex-col items-center space-y-4"
               variants={itemVariants}
-              whileHover="hover"
             >
               <motion.div
                 className="w-20 h-20 rounded-xl bg-gray-800 flex items-center justify-center text-purple-400"
                 variants={iconVariants}
+                whileHover={{
+                  scale: 1.1,
+                  rotate: 10,
+                  transition: {
+                    type: "spring",
+                    stiffness: 400,
+                    damping: 10
+                  }}}
               >
                 {skill.icon}
               </motion.div>

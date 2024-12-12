@@ -35,7 +35,7 @@ const Header = () => {
 
   return (
     <motion.header
-      className="sticky top-0 z-10 bg-gray-900 bg-opacity-90 backdrop-filter backdrop-blur-sm"
+      className="sticky top-0 z-10 bg-gray-500 bg-opacity-50 backdrop-filter backdrop-blur-md"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: 'spring', stiffness: 100 }}
