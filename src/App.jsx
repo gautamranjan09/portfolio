@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Header from './component/Header';
-import About from './component/about';
+import About from './component/About';
 import Skills from './component/Skills';
 import Projects from './component/Projects';
 import Contact from './component/Contact';
