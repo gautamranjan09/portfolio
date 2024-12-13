@@ -9,7 +9,7 @@ import Footer from './component/Footer';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-violet-800 text-white">
+    <div className="min-h-screen  text-white">
       <Header />
       <motion.main
         initial={{ opacity: 0 }}

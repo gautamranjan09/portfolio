@@ -6,6 +6,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentRole, setCurrentRole] = useState(0);
   const roles = ["Web Developer", "React Developer", "Frontend Developer", "JavaScript Developer"];
+  const [activeTab, setActiveTab] = useState("About");
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -35,7 +36,7 @@ const Header = () => {
 
   return (
     <motion.header
-      className="sticky top-0 z-10 bg-gray-500 bg-opacity-50 backdrop-filter backdrop-blur-md"
+      className="fixed bg-[#00000048]  text-white border rounded-3xl border-gray-400 border-opacity-40 w-[98%] top-6 left-[1%] z-10 bg-opacity-40 backdrop-filter backdrop-blur-md"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: 'spring', stiffness: 100 }}
@@ -86,34 +87,49 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex">
-          <ul className="flex space-x-6">
+          <ul className="flex space-x-6 ">
             {['About', 'Skills', 'Projects', 'Contact'].map((item) => (
               <motion.li
                 key={item}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={()=> setActiveTab(item)}
+                className="group relative"
               >
                 <a
                   href={`#${item.toLowerCase()}`}
-                  className="text-white hover:text-purple-400 transition-colors"
+                  className="text-white transition-colors  hover:text-transparent hover:bg-gradient-to-r hover:from-pink-400 hover:to-pink-500 hover:bg-clip-text"
                 >
                   {item}
                 </a>
+                 {/* Animated bottom border */}
+                <span
+                  className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-pink-400 to-pink-500 transition-all duration-300 ${
+                  activeTab !== item ? 'w-0 group-hover:w-full' : 'w-full'
+                  }`}
+                ></span>
+                {/* {activeTab === item && <motion.span
+                  layoutId='underline'
+                  className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-pink-400 to-pink-500 transition-all duration-300 w-full`}
+                ></motion.span>} */}
               </motion.li>
             ))}
           </ul>
         </div>
 
-        {/* Mobile Navigation */}
-        <AnimatePresence>
+       
+      </nav>
+       {/* Mobile Navigation */}
+       <AnimatePresence>
           {isOpen && (
             <motion.div
               variants={menuVariants}
               initial="closed"
               animate="open"
               exit="closed"
-              className="md:hidden absolute top-full left-0 right-0 bg-gray-900 bg-opacity-90 backdrop-filter backdrop-blur-sm"
+              className="md:hidden top-full left-0 right-0 bg-gray-900 bg-opacity-90 backdrop-filter backdrop-blur-sm"
             >
+              
               <ul className="flex flex-col space-y-4 p-4">
                 {['About', 'Skills', 'Projects', 'Contact'].map((item, index) => (
                   <motion.li
@@ -125,7 +141,7 @@ const Header = () => {
                   >
                     <a
                       href={`#${item.toLowerCase()}`}
-                      className="text-white hover:text-purple-400 transition-colors"
+                      className="text-white transition-colors relative hover:text-transparent hover:bg-gradient-to-t hover:from-pink-400 hover:to-pink-500 hover:bg-clip-text"
                       onClick={() => setIsOpen(false)}
                     >
                       {item}
@@ -136,7 +152,6 @@ const Header = () => {
             </motion.div>
           )}
         </AnimatePresence>
-      </nav>
     </motion.header>
   );
 };

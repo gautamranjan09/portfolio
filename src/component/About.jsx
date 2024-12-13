@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const About = () => {
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 1 },
     visible: {
       opacity: 1,
       transition: {
@@ -27,7 +27,7 @@ const About = () => {
   return (
     <motion.section
       id="about"
-      className="py-20 bg-gradient-to-r from-gray-700 via-gray-800 to-gray-900"
+      className="py-40 bg-gradient-to-b from-black via-gray-950 to-sky-950"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: false, amount: 0.3 }}

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const Contact = () => {
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 1 },
     visible: {
       opacity: 1,
       transition: {
@@ -27,7 +27,7 @@ const Contact = () => {
   return (
     <motion.section
       id="contact"
-      className="py-20 bg-gradient-to-r from-gray-900 to-purple-900"
+      className="py-20 bg-gradient-to-b from-cyan-950 via-gray-950 to-black"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: false, amount: 0.3 }}

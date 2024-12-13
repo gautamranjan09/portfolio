@@ -73,7 +73,7 @@ const Projects = () => {
   ];
 
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 1 },
     visible: {
       opacity: 1,
       transition: {
@@ -121,7 +121,7 @@ const Projects = () => {
   return (
     <motion.section
       id="projects"
-      className="py-20 bg-gradient-to-r from-purple-900 to-indigo-900"
+      className="py-20 bg-gradient-to-b from-black via-gray-950 to-cyan-950"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: false, amount: 0.3 }}
