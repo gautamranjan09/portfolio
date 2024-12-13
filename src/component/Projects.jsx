@@ -124,7 +124,7 @@ const Projects = () => {
       className="py-20 bg-gradient-to-b from-black via-gray-950 to-cyan-950"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.3 }}
+      viewport={{ once: false, amount: 0.1 }}
       variants={containerVariants}
     >
       <div className="container mx-auto px-6">

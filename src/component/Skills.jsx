@@ -71,7 +71,7 @@ const Skills = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.1,
       }
     }
   };
@@ -108,7 +108,7 @@ const Skills = () => {
       className="pt-20 bg-gradient-to-b from-sky-950 via-gray-950 to-black"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.3 }}
+      viewport={{ once: false, amount: 0.07 }}
       variants={containerVariants}
     >
       <div className="container mx-auto px-6">

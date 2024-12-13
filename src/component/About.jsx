@@ -30,7 +30,7 @@ const About = () => {
       className="pt-40 bg-gradient-to-b from-black via-gray-950 to-sky-950"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.3 }}
+      viewport={{ once: false, amount: 0.07 }}
       variants={containerVariants}
     >
       <div className="container mx-auto px-6">
