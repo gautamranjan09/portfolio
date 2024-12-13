@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Code } from 'lucide-react';
 
-const Header = () => {
+const Header = ({ activeTab, setActiveTab }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentRole, setCurrentRole] = useState(0);
   const roles = ["Web Developer", "React Developer", "Frontend Developer", "JavaScript Developer"];
-  const [activeTab, setActiveTab] = useState("About");
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -66,7 +65,7 @@ const Header = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.3 }}
-                  className="text-sm text-purple-400"
+                  className="text-sm text-purple-300 font-semibold"
                 >
                   {roles[currentRole]}
                 </motion.div>
@@ -93,31 +92,31 @@ const Header = () => {
                 key={item}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={()=> setActiveTab(item)}
+                onClick={() => setActiveTab(item)}
                 className="group relative"
               >
                 <a
                   href={`#${item.toLowerCase()}`}
-                  className="text-white transition-colors  hover:text-transparent hover:bg-gradient-to-r hover:from-pink-400 hover:to-pink-500 hover:bg-clip-text"
+                  className={`text-white transition-colors ${
+                    activeTab === item
+                      ? 'text-transparent bg-gradient-to-r from-pink-400 to-pink-500 bg-clip-text'
+                      : 'hover:text-transparent hover:bg-gradient-to-r hover:from-pink-400 hover:to-pink-500 hover:bg-clip-text'
+                  }`}
                 >
                   {item}
                 </a>
-                 {/* Animated bottom border */}
+                {/* Animated bottom border */}
                 <span
                   className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-pink-400 to-pink-500 transition-all duration-300 ${
-                  activeTab !== item ? 'w-0 group-hover:w-full' : 'w-full'
+                    activeTab === item ? 'w-full' : 'w-0 group-hover:w-full'
                   }`}
                 ></span>
-                {/* {activeTab === item && <motion.span
-                  layoutId='underline'
-                  className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-pink-400 to-pink-500 transition-all duration-300 w-full`}
-                ></motion.span>} */}
               </motion.li>
             ))}
           </ul>
         </div>
 
-       
+
       </nav>
        {/* Mobile Navigation */}
        <AnimatePresence>
@@ -127,9 +126,9 @@ const Header = () => {
               initial="closed"
               animate="open"
               exit="closed"
-              className="md:hidden top-full left-0 right-0 bg-gray-900 bg-opacity-90 backdrop-filter backdrop-blur-sm"
+              className="md:hidden top-full left-0 right-0 backdrop-filter backdrop-blur-md"
             >
-              
+
               <ul className="flex flex-col space-y-4 p-4">
                 {['About', 'Skills', 'Projects', 'Contact'].map((item, index) => (
                   <motion.li
@@ -138,14 +137,29 @@ const Header = () => {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
                     transition={{ delay: index * 0.1 }}
+                    className="group relative"
                   >
                     <a
                       href={`#${item.toLowerCase()}`}
-                      className="text-white transition-colors relative hover:text-transparent hover:bg-gradient-to-t hover:from-pink-400 hover:to-pink-500 hover:bg-clip-text"
-                      onClick={() => setIsOpen(false)}
+                      className={`text-white transition-colors relative ${
+                        activeTab === item
+                          ? 'text-transparent bg-gradient-to-t from-pink-400 to-pink-500 bg-clip-text'
+                          : 'hover:text-transparent hover:bg-gradient-to-t hover:from-pink-400 hover:to-pink-500 hover:bg-clip-text'
+                      }`}
+                      onClick={() => {
+                        setActiveTab(item);
+                        // setIsOpen(false);
+                      }}
                     >
                       {item}
                     </a>
+                    
+                    {/* Animated bottom border */}
+                    <span
+                      className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-pink-400 to-pink-500 transition-all duration-300 ${
+                      activeTab === item ? 'w-full' : 'w-0 group-hover:w-full'
+                      }`}
+                    ></span>
                   </motion.li>
                 ))}
               </ul>

@@ -27,23 +27,23 @@ const About = () => {
   return (
     <motion.section
       id="about"
-      className="py-40 bg-gradient-to-b from-black via-gray-950 to-sky-950"
+      className="pt-40 bg-gradient-to-b from-black via-gray-950 to-sky-950"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: false, amount: 0.3 }}
       variants={containerVariants}
     >
       <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+        <div className="flex flex-col md:flex-row items-center justify-between">
           <motion.div className="md:w-1/2" variants={itemVariants}>
             <motion.div
-              className="relative w-64 h-64 mx-auto md:mx-0"
+              className="relative w-[22rem] h-[22rem] sm:w-[26rem] sm:h-[26rem] md:w-[28rem] md:h-[28rem] mx-auto md:mx-0"
               initial={{ rotate: -5 }}
               whileHover={{ rotate: 0 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
               <motion.div
-                className="absolute inset-0 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-500"
+                className="absolute inset-0 rounded-2xl "
                 style={{ rotate: -3 }}
                 animate={{
                   rotate: [0, -4, 0],
@@ -54,14 +54,15 @@ const About = () => {
                   repeat: Infinity,
                   repeatType: "reverse"
                 }}
-              />
-              <div className="absolute inset-2 rounded-2xl bg-gray-900 flex items-center justify-center">
+              >
+              {/* <div className="absolute inset-0 rounded-2xl  flex items-center justify-center"> */}
                 <img
-                    src="https://via.placeholder.com/128" // Replace with your image URL
+                    src="https://gyandors.com/_next/image?url=%2Fimages%2Fdeveloper-1.png&w=1080&q=75" // Replace with your image URL
                     alt="Descriptive text for the image" // Add alt text for accessibility
-                    className="w-56 h-56 object-cover rounded-2xl" // Style the image
+                    className="w-full h-full object-cover rounded-2xl drop-shadow-[0px_0px_8px_rgba(192,38,211,1)]" // Style the image
                   />
-              </div>
+              {/* </div> */}
+              </motion.div>
             </motion.div>
           </motion.div>
 
