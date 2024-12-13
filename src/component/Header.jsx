@@ -35,7 +35,7 @@ const Header = ({ activeTab, setActiveTab }) => {
 
   return (
     <motion.header
-      className="fixed bg-[#00000048]  text-white border rounded-3xl border-gray-400 border-opacity-40 w-[98%] top-6 left-[1%] z-10 bg-opacity-40 backdrop-filter backdrop-blur-md"
+      className="fixed bg-[#00000048]  text-white border rounded-3xl border-opacity-10 w-[98%] top-6 left-[1%] z-10 bg-opacity-40 backdrop-filter backdrop-blur-md"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: 'spring', stiffness: 100 }}

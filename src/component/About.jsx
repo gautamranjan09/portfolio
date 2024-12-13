@@ -68,7 +68,7 @@ const About = () => {
 
           <motion.div className="md:w-1/2 space-y-6" variants={containerVariants}>
             <motion.h2
-              className="text-4xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 text-transparent bg-clip-text"
+              className="text-4xl font-bold border-b py-2 bg-gradient-to-r from-pink-500 to-purple-500 text-transparent bg-clip-text"
               variants={itemVariants}
             >
               About Me
