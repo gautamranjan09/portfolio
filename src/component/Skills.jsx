@@ -57,7 +57,7 @@ const Skills = () => {
       icon: "https://framerusercontent.com/images/FEF0Xp0qllCZsG1uilpmdZAzD8.png"
     },
     {
-      name: "Firebase",
+      name: "DSA",
       icon: dsaImg
     },
     {
@@ -71,7 +71,7 @@ const Skills = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.2,
       }
     }
   };

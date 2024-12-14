@@ -121,7 +121,7 @@ const Projects = () => {
   return (
     <motion.section
       id="projects"
-      className="py-20 bg-gradient-to-b from-black via-gray-950 to-cyan-950"
+      className="pt-20 bg-gradient-to-b from-black via-gray-950 to-cyan-950"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: false, amount: 0.1 }}
@@ -129,7 +129,7 @@ const Projects = () => {
     >
       <div className="container mx-auto px-6">
         <motion.h2
-          className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-pink-400 to-purple-600 text-transparent bg-clip-text"
+          className="text-4xl font-bold mb-8 border-b pb-3 text-center bg-gradient-to-r from-pink-400 to-purple-600 text-transparent bg-clip-text"
           variants={itemVariants}
         >
           Projects

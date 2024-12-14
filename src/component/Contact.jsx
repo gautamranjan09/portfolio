@@ -27,7 +27,7 @@ const Contact = () => {
   return (
     <motion.section
       id="contact"
-      className="py-20 bg-gradient-to-b from-cyan-950 via-gray-950 to-black"
+      className="pt-20 bg-gradient-to-b from-cyan-950 via-gray-950 to-black"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: false, amount: 0.3 }}
@@ -35,7 +35,7 @@ const Contact = () => {
     >
       <div className="container mx-auto px-6">
         <motion.h2
-          className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-blue-400 to-purple-600 text-transparent bg-clip-text"
+          className="text-4xl border-b pb-3 font-bold mb-8 text-center bg-gradient-to-r from-purple-400 to-purple-600 text-transparent bg-clip-text"
           variants={itemVariants}
         >
           Contact Me
@@ -48,24 +48,36 @@ const Contact = () => {
             type="text"
             placeholder="Your Name"
             required
-            className="w-full px-4 py-2 bg-gray-800 rounded focus:outline-none focus:ring-2 focus:ring-purple-600"
+            className="w-full px-4 py-2 bg-gradient-to-b from-gray-950/90 to-cyan-800 rounded focus:outline-none focus:ring-2 focus:ring-purple-600"
             variants={itemVariants}
-            whileFocus={{ scale: 1.05 }}
+            whileFocus={{ scale: 1.1 }}
+            transition={{duration:0.5}}
           />
           <motion.input
             type="email"
             placeholder="Your Email"
             required
-            className="w-full px-4 py-2 bg-gray-800 rounded focus:outline-none focus:ring-2 focus:ring-purple-600"
+            className="w-full px-4 py-2 bg-gradient-to-b from-gray-950/90 to-cyan-800 rounded focus:outline-none focus:ring-2 focus:ring-purple-600"
             variants={itemVariants}
-            whileFocus={{ scale: 1.05 }}
+            whileFocus={{ scale: 1.1 }}
+            transition={{duration:0.5}}
+          />
+           <motion.input
+            type="number"
+            placeholder="Your Phone Number"
+            required
+            className="w-full px-4 py-2 bg-gradient-to-b from-gray-950/90 to-cyan-800 rounded focus:outline-none focus:ring-2 focus:ring-purple-600"
+            variants={itemVariants}
+            whileFocus={{ scale: 1.1 }}
+            transition={{duration:0.5}}
           />
           <motion.textarea
             placeholder="Your Message"
             required
-            className="w-full px-4 py-2 bg-gray-800 rounded focus:outline-none focus:ring-2 focus:ring-purple-600 h-32"
+            className="w-full px-4 py-2 bg-gradient-to-b from-gray-950/90 to-cyan-800 rounded focus:outline-none focus:ring-2 focus:ring-purple-600 h-32"
             variants={itemVariants}
-            whileFocus={{ scale: 1.05 }}
+            whileFocus={{ scale: 1.1 }}
+            transition={{duration:0.5}}
           />
           <motion.button
             type="submit"
@@ -73,6 +85,7 @@ const Contact = () => {
             variants={itemVariants}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            transition={{type: 'spring', stiffness: 200}}
           >
             Send Message
           </motion.button>

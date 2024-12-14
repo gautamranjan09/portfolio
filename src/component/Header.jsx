@@ -40,7 +40,7 @@ const Header = ({ activeTab, setActiveTab }) => {
       animate={{ y: 0 }}
       transition={{ type: 'spring', stiffness: 100 }}
     >
-      <nav className="container mx-auto px-6 py-3 flex items-center justify-between">
+      <nav className=" mx-auto px-6 py-3 flex items-center justify-between">
         <div className="flex items-center space-x-4">
           <Code size={24} className="text-purple-400" />
           <div>
@@ -97,7 +97,7 @@ const Header = ({ activeTab, setActiveTab }) => {
               >
                 <a
                   href={`#${item.toLowerCase()}`}
-                  className={`text-white transition-colors ${
+                  className={`text-white block  transition-colors ${
                     activeTab === item
                       ? 'text-transparent bg-gradient-to-r from-pink-400 to-pink-500 bg-clip-text'
                       : 'hover:text-transparent hover:bg-gradient-to-r hover:from-pink-400 hover:to-pink-500 hover:bg-clip-text'
@@ -138,18 +138,18 @@ const Header = ({ activeTab, setActiveTab }) => {
                     exit={{ opacity: 0, x: -20 }}
                     transition={{ delay: index * 0.1 }}
                     className="group relative"
+                    onClick={() => {
+                      setActiveTab(item);
+                      // setIsOpen(false);
+                    }}
                   >
                     <a
                       href={`#${item.toLowerCase()}`}
-                      className={`text-white transition-colors relative ${
+                      className={`text-white block w-full transition-colors relative ${
                         activeTab === item
                           ? 'text-transparent bg-gradient-to-t from-pink-400 to-pink-500 bg-clip-text'
                           : 'hover:text-transparent hover:bg-gradient-to-t hover:from-pink-400 hover:to-pink-500 hover:bg-clip-text'
                       }`}
-                      onClick={() => {
-                        setActiveTab(item);
-                        // setIsOpen(false);
-                      }}
                     >
                       {item}
                     </a>
