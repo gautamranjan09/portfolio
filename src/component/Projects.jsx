@@ -5,15 +5,16 @@ import ProjectModal from './ProjectModal';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import MailHubImg from '../assets/MailHub.png';
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
   const projects = [
     {
-      title: "Project 1",
-      description: "A brief description of Project 1 and its key features. This project showcases my skills in React and Node.js, implementing a full-stack application with real-time updates.",
-      image: "https://via.placeholder.com/300x200",
+      title: "MailHub",
+      description: 'Built MailHub, an email management system with Firebase authentication (Google and email/password) and password recovery. Integrated Firestore for user-specific data storage and dynamic retrieval based on login state.•	Developed core features like email composition, categorized views (inbox, trash, starred, etc.), and search functionality. Implemented advanced email management, including batch actions, "Delete for everyone," and read/unread indicators. Enhanced user experience with persistent login, profile management, and paginated email navigation. Developed MailHub using React, Tailwind CSS, Firebase and Redux for global state management, focusing on scalability and core functionality.',
+      image: MailHubImg,
       githubLink: "https://github.com/yourusername/project1",
       websiteLink: "https://project1-demo.com",
       technologies: [
@@ -142,16 +143,25 @@ const Projects = () => {
                 className="px-2"
                 variants={itemVariants}
               >
-                <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                  <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
+                <div className="bg-gradient-to-br from-black via-cyan-950 to-black rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                  <img src={project.image} alt={project.title} className="w-full h-48 md:h-[16.5rem] object-fit" />
                   <div className="p-6">
                     <h3 className="text-xl font-semibold mb-2 text-pink-400">{project.title}</h3>
-                    <p className="text-gray-300 mb-4">{project.description.substring(0, 100)}...</p>
+                    <p className="text-gray-300 mb-5 line-clamp-3">{project.description}</p>
+                    <div className="flex flex-wrap gap-2 mb-5">
+              {project.technologies.map((tech, index) => (
+                <div key={index} className="flex items-center bg-gray-800 rounded-full px-3 py-1">
+                  {tech.icon}
+                  <span className="ml-2 text-sm">{tech.name}</span>
+                </div>
+              ))}
+            </div>
                     <motion.button
                       onClick={() => setSelectedProject(project)}
                       className="inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition-colors"
-                      whileHover={{ scale: 1.05 }}
+                      whileHover={{ scale: 1.10 }}
                       whileTap={{ scale: 0.95 }}
+                      transition={{type: 'spring', stiffness: 500}}
                     >
                       View Project
                     </motion.button>
