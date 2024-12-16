@@ -6,6 +6,8 @@ import Skills from './component/Skills';
 import Projects from './component/Projects';
 import Contact from './component/Contact';
 import Footer from './component/Footer';
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [activeTab, setActiveTab] = useState('About');
@@ -50,6 +52,7 @@ function App() {
         <Contact />
       </motion.main>
       <Footer />
+      <ToastContainer />
     </div>
   );
 }
