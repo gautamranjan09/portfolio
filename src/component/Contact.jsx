@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion, stagger, useAnimate } from 'framer-motion';
+import { toast } from 'react-toastify';
 
 const Contact = () => {
   const yourName = useRef();
@@ -9,6 +10,7 @@ const Contact = () => {
 
   const [scope, animate] = useAnimate();
   const [error, setError] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
   const containerVariants = {
     hidden: { opacity: 1 },
@@ -34,6 +36,8 @@ const Contact = () => {
 
   const contactFormSubmitHandler = async(event) => {
     event.preventDefault();
+
+    console.log("submit");
     const name = yourName.current.value;
     const email = yourEmail.current.value;
     const phoneNumber = yourPhoneNumber.current.value;
@@ -62,6 +66,8 @@ const Contact = () => {
       )
       return
     }
+    setIsLoading(true);
+    const loadingToast = toast.loading("Sending Message...");
     const formData = new FormData(event.target);
 
     formData.append("access_key", "2fbfb457-b83f-46f1-8ad8-1550aa423064");
@@ -80,8 +86,20 @@ const Contact = () => {
 
     if (res.success) {
       console.log("Success", res);
+      // Update the loading toast with success message
+      toast.update(loadingToast, {
+        render: `Message sent successfully!`,
+        type: "success",
+        isLoading: false,
+        autoClose: 3000,
+      });
     }
     setError({});
+    setIsLoading(false);
+    yourName.current.value = "";
+    yourEmail.current.value = "";
+    yourPhoneNumber.current.value = "";
+    yourMessage.current.value = "";
   }
 
   return (
@@ -110,9 +128,9 @@ const Contact = () => {
           <motion.input
             type="text"
             placeholder="Your Name"
-            name="name"
             onFocus={() => {setError({...error, name: ''})}}
             ref={yourName}
+            name='name'
             className={`inputName w-full px-4 py-2 bg-gradient-to-b from-gray-950/90 to-cyan-800 rounded border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 ${error.name && `placeholder:text-red-500 border-red-500`}`}
             whileFocus={{ scale: 1.1 }}
             transition={{duration:0.5}}
@@ -123,9 +141,9 @@ const Contact = () => {
           <motion.input
             type="email"
             placeholder="Your Email"
-            name="email"
             onFocus={() => {setError({...error, email: ''})}}
             ref={yourEmail}
+            name='email'
             className={`inputEmail w-full px-4 py-2 bg-gradient-to-b from-gray-950/90 to-cyan-800 rounded border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 ${error.email && `placeholder:text-red-500 border-red-500`}`}
             whileFocus={{ scale: 1.1 }}
             transition={{duration:0.5}}
@@ -136,9 +154,9 @@ const Contact = () => {
            <motion.input
             type="number"
             placeholder="Your Phone Number"
-            name="number"
             onFocus={() => {setError({...error, phoneNumber: ''})}}
             ref={yourPhoneNumber}
+            name='number'
             className={`inputPhoneNumber w-full px-4 py-2 bg-gradient-to-b from-gray-950/90 to-cyan-800 rounded border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 ${error.phoneNumber && `placeholder:text-red-500 border-red-500`}`}
             whileFocus={{ scale: 1.1 }}
             transition={{duration:0.5}}
@@ -149,7 +167,7 @@ const Contact = () => {
           <motion.textarea
             placeholder="Your Message"
             ref={yourMessage}
-            name="message"
+            name='message'
             onFocus={() => {setError({...error, message: ''})}}
             className={`inputMessage w-full px-4 py-2 bg-gradient-to-b from-gray-950/90 to-cyan-800 rounded border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 h-32 ${error.message && `placeholder:text-red-500 border-red-500`}`}
             whileFocus={{ scale: 1.1 }}
@@ -159,7 +177,8 @@ const Contact = () => {
           </motion.div>
           <motion.button
             type="submit"
-            className="w-full bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition-colors"
+            disabled={isLoading}
+            className="w-full bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition-colors disabled:bg-purple-400 disabled:cursor-not-allowed"
             variants={itemVariants}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
