@@ -39,7 +39,7 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen text-white">
+    <div className="min-h-screen overflow-hidden text-white">
       <Header activeTab={activeTab} setActiveTab={setActiveTab} />
       <motion.main
         initial={{ opacity: 0 }}

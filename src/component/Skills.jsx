@@ -1,48 +1,58 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import dsaImg from "../assets/dsa.png"
+import reactImg from '../assets/reactImg.svg';
+import javascriptImg from '../assets/javascriptImg.svg';
+import reduxImg from '../assets/reduxImg.svg';
+import htmlImg from '../assets/htmlImg.svg';
+import cssImg from '../assets/cssImg.svg';
+import tailwindImg from '../assets/tailwindImg.svg';
+import routerImg from '../assets/router.webp';
+import gitImg from '../assets/gitImg.svg';
+import gitHubImg from '../assets/github.webp';
+import bootstrapImg from '../assets/bootstrap.webp';
 
 const Skills = () => {
   const skills = [
     {
       name: "React",
-      icon: "https://gyandors.com/_next/image?url=%2Fimages%2Freact.png&w=64&q=75"
+      icon: reactImg
     },
     {
       name: "JavaScript",
-      icon: "https://gyandors.com/_next/image?url=%2Fimages%2Fjavascript.png&w=64&q=75"
+      icon: javascriptImg
     },
     {
       name: "Redux",
-      icon: "https://gyandors.com/_next/image?url=%2Fimages%2Fredux.png&w=64&q=75"
+      icon: reduxImg
     },
     {
       name: "HTML",
-      icon: "https://gyandors.com/_next/image?url=%2Fimages%2Fhtml.png&w=64&q=75"
+      icon: htmlImg
     },
     {
       name: "CSS",
-      icon: "https://gyandors.com/_next/image?url=%2Fimages%2Fcss.png&w=64&q=75"
+      icon: cssImg
     },
     {
       name: "Tailwind CSS",
-      icon: "https://gyandors.com/_next/image?url=%2Fimages%2Ftailwind.png&w=64&q=75"
+      icon: tailwindImg
     },
     {
       name: "Router",
-      icon: "https://gyandors.com/_next/image?url=%2Fimages%2Frouter.png&w=64&q=75"
+      icon: routerImg
     },
     {
       name: "Bootstrap",
-      icon: "https://gyandors.com/_next/image?url=%2Fimages%2Fbootstrap.png&w=64&q=75"
+      icon: bootstrapImg
     },
     {
       name: "Git",
-      icon: "https://gyandors.com/_next/image?url=%2Fimages%2Fgit.png&w=64&q=75"
+      icon: gitImg
     },
     {
       name: "GitHub",
-      icon: "https://gyandors.com/_next/image?url=%2Fimages%2Fgithub.png&w=64&q=75"
+      icon: gitHubImg
     },
     {
       name: "Firebase",

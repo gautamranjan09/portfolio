@@ -144,7 +144,7 @@ const Projects = () => {
                 variants={itemVariants}
               >
                 <div className="bg-gradient-to-br from-black via-cyan-950 to-black rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                  <img src={project.image} alt={project.title} className="w-full h-48 md:h-[16.5rem] object-fit" />
+                  <img src={project.image} alt={project.title} className="w-full h-48 md:h-60 object-fit" />
                   <div className="p-6">
                     <h3 className="text-xl font-semibold mb-2 text-pink-400">{project.title}</h3>
                     <p className="text-gray-300 mb-5 line-clamp-3">{project.description}</p>
